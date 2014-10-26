@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Months to BreakEven</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Months to BreakEven">
+  <meta name="author" content="Rachit Kulshrestha">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Months to BreakEven</h1>
+    <h2>For your college investments/loan</h2>
+    <p>Rachit Kulshrestha<br/>R student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Description</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>My shiny app will help a student to estimate the number of months to break even on his educational investments/loan.</p>
+
+<p>Can be helpful for a student to estimate the number of months it will take him to make a break even on his tuition fees for the college education after finding a job.
+This can assist an aspiring student to manage his finances and by varying his savings each month he can expect to pay back the expenditure soon.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Details</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>I have taken into account the number of semester the course will run for. Most of the courses run for 4 semesters and the default value is given as 4.
+Next we have to ask a student about the course fee in ($) for a semester. </p>
+
+<p>After this the student can input his basic expected or incumbent expenditure while he is studying. We assume that the student was not earning any money during the course. </p>
+
+<p>The next question is to ask the student his current salary/expected salary after he gets employment and how much percentage he expects to save.</p>
+
+<p>Based on all this information we will calculate the number of months to pay for his complete expense during college.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Calculation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The calculation is divided into three parts. 
+1- The total amount of expenditure
+2- The savings per month
+3- Number of months to break even</p>
+
+<p>Here is the sample code for the calculation</p>
+
+<pre><code class="r">calculateTotalExpenditure &lt;- function(fees, semesterRent, foodSem, transSem, suppSem, miscSem, semester) 
+{
+  result &lt;- semester*(fees+semesterRent+suppSem+transSem+miscSem+foodSem)
+  return(round(result, digits = 2))
+}
+
+calculateSavingsPerMonth &lt;- function(salary,savings) 
+{
+  result &lt;- savings*salary/100
+  return(round(result, digits = 2))
+}
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Lessons learned</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>The simple application gave me an insight into manipulating input and output with ShinyApps.</p></li>
+<li><p>Had difficulty in using the variables inside the Server.R and hence had to calculate the final &quot;no of months&quot; parameter using all input variables. </p></li>
+<li><p>Need to improve on the UI and data handling inside the application, but I was content with my first attempt. </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Conclusion</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>This was just a base version of this application and I would go on to develope a much more advanced version, hope that it helps lot of students like me.</p></li>
+<li><p>R is a very handy platform to learn and utilize new tools, Shiny apps and slidify make it possible to create simple applications and deploy it for the world to see. Very excited!! </p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Description'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Details'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Calculation'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Lessons learned'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Conclusion'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
